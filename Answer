@@ -1,0 +1,28 @@
+def freq_count(lst, el):
+    array = []
+    level = 0
+    while True:
+        sub = []
+        count = 0
+        for i in range(len(lst)):
+            if type(lst[0]) != list:
+                if lst[0] == el:
+                    count += 1
+            else:
+                if len(lst[0]) == 0:
+                    lst.append(lst[0][0])
+                else:
+                    for u in range(len(lst[0])):
+                        lst.append(lst[0][u])
+            lst.pop(0)
+        sub.append(level)
+        sub.append(count)
+        array.append(sub)
+        level += 1
+        if lst == []:
+            break
+        else:
+            for i in range(len(lst)):
+                lst.append(lst[0])
+                lst.pop(0)
+    return array
